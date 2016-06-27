@@ -1,0 +1,48 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "goal",
+            "otherEntityName": "goal",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "metric",
+            "otherEntityName": "metric",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "entry"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "excercise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "meals",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "alcohol",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160622210131",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "entry",
+    "pagination": "infinite-scroll"
+}

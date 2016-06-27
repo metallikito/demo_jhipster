@@ -1,0 +1,41 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "entry",
+            "otherEntityName": "entry",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "metric"
+        },
+        {
+            "relationshipName": "goal",
+            "otherEntityName": "goal",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "metric"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "2"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160622181151",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "metric",
+    "pagination": "pagination"
+}

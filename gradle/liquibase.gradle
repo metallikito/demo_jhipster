@@ -15,12 +15,12 @@ task liquibaseDiffChangelog(dependsOn: compileJava, type: JavaExec) {
 
     args "--changeLogFile=src/main/resources/config/liquibase/changelog/" + buildTimestamp() +"_changelog.xml"
     args "--referenceUrl=hibernate:spring:mx.org.metallikito.demo.jhipster.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect&hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy"
-    args "--username=demo_jhipster"
-    args "--password="
+    args "--username=common_usr"
+    args "--password=common_usr"
     args "--url=jdbc:postgresql://localhost:5432/demo_jhipster"
     args "--driver=org.postgresql.Driver"
     args "diffChangeLog"
-    
+
 }
 
 def buildTimestamp() {

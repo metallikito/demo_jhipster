@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="pedro-josue (generated)" id="1467044082547-1">
+        <createTable tableName="entry">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="entryPK"/>
+            </column>
+            <column name="alcohol" type="INT"/>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="excercise" type="INT"/>
+            <column name="meals" type="INT"/>
+            <column name="notes" type="VARCHAR(255)"/>
+            <column name="goal_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-2">
+        <createTable tableName="goal">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="goalPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-3">
+        <createTable tableName="metric">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="metricPK"/>
+            </column>
+            <column name="amount" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entry_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-4">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="goal" constraintName="FK_7b7j83l6dquot72lsg25y8323" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-5">
+        <addForeignKeyConstraint baseColumnNames="goal_id" baseTableName="entry" constraintName="FK_e23h1ocdpob2l8gub52lslrlm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="goal"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-6">
+        <addForeignKeyConstraint baseColumnNames="entry_id" baseTableName="metric" constraintName="FK_hfgvm03u6o154ts316jtp9pq4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="entry"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-7">
+        <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_provider_use_key" tableName="jhi_social_user_connection"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-8">
+        <dropUniqueConstraint constraintName="jhi_social_user_connection_user_id_provider_id_rank_key" tableName="jhi_social_user_connection"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-9">
+        <dropSequence sequenceName="jhi_persistent_audit_event_event_id_seq"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-10">
+        <dropSequence sequenceName="jhi_social_user_connection_id_seq"/>
+    </changeSet>
+    <changeSet author="pedro-josue (generated)" id="1467044082547-11">
+        <dropSequence sequenceName="jhi_user_id_seq"/>
+    </changeSet>
+</databaseChangeLog>
